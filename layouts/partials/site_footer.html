@@ -1,0 +1,59 @@
+<footer class="site-footer bg-dark text-light py-4">
+  {{ partial "blox-core/functions/get_hook" (dict "hook" "footer-start" "context" .) }}
+
+  {{/* Load footer block */}}
+  {{ $footer_section_name := site.Params.footer.block | default "minimal" }}
+  {{ $footer_section_path := printf "components/footers/%s.html" $footer_section_name }}
+  {{ if not (templates.Exists (printf "partials/%s" $footer_section_path)) }}
+    {{ errorf "Check your `params.yaml`. Cannot find footer block at `layouts/partials/%s`" $footer_section_path }}
+  {{ end }}
+  {{ partial $footer_section_path . }}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+        <div class="d-flex justify-content-center justify-content-md-start">
+          <div class="footer-logo mr-2">
+            <img src="https://www.synergia.dcc.ufmg.br/images/logo-dcc-ufmg-2.png" alt="Logo DCC UFMG" class="img-fluid" width="80vh">
+          </div>
+          <div class="footer-logo">
+            <img src="https://ufmg.br/static/logo-ufmg.svg" alt="Logo UFMG" class="img-fluid" width="65vh">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 text-center mb-3 mb-md-0">
+        <p class="mb-0">&copy; 2024 Copyright - All rights reserved</p>
+      </div>
+      <div class="col-md-4 text-center text-md-right">
+        <div class="footer-social-icons">
+          <a href="https://github.com/Lucas-Rezende/File-Compressor-LZW" target="_blank" class="text-light mx-2"><i class="fab fa-github fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .page-footer {
+    background-color: #343a40;
+  }
+  .footer-logo img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-social-icons a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .footer-social-icons a:hover {
+    color: #007bff;
+  }
+
+  @media (max-width: 576px) {
+    .footer-logo {
+      margin-bottom: 10px;
+    }
+  }
+</style>
