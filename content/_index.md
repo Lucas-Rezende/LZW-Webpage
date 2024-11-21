@@ -87,7 +87,7 @@ sections:
     content:
       title: Como utilizar o programa
       text: >
-        <p>É possível utilizar tanto o compressor quanto o descompressor baseado no algoritmo LZW, sendo possível usar o número de bits dinâmico ou fixo. Para usá-lo, basta executar o script main.py no terminal, passando o caminho para o arquivo de entrada como argumento. O parâmetro --max_bits permite definir o número máximo de bits para o dicionário (o valor padrão é 12).<p>
+        <p>É possível utilizar tanto o compressor quanto o descompressor baseado no algoritmo LZW, sendo possível usar o número de bits dinâmico ou fixo. Para usá-lo, basta executar o script main.py no terminal, passando o caminho para o arquivo de entrada como argumento. O parâmetro --max_bits permite definir o número máximo de bits para o dicionário (o valor padrão é 12). Ademais, é necessário que o max_bits seja no mínimo 9 para funcionar corretamente.<p>
 
     design:
       slide_height: ''
